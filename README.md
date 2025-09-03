@@ -50,7 +50,10 @@
     * description
     * art (link to image)
     * scene stats
-    * outcome impacts
+    * list of outcomes:
+      * simple boolean questions
+      * impact lists for True and False answers
+      * impact may be another outcome? Or early exit from list?
     * color
   * edges - representing paths between scene nodes, each desribing
     * name
