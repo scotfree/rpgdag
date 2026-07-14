@@ -1,0 +1,236 @@
+{
+  "meta": {
+    "name": "The Warrens of Skarn",
+    "description": "End the goblin raids.",
+    "start_node": "gatehouse",
+    "players": ["alice", "bob", "carol"]
+  },
+  "axes": [
+    {"id": "fear", "name": "Fear", "start": 6},
+    {"id": "hope", "name": "Hope", "start": 4}
+  ],
+  "nodes": [
+    {
+      "id": "gatehouse",
+      "name": "The Gatehouse",
+      "premise": "A ruined watchtower guards the only known entrance to the warrens. Goblin sentries hold it; an old waterfall pounds the cliff beside it.",
+      "questions": [
+        {
+          "id": "q1",
+          "text": "Did the party take the gatehouse?",
+          "yes": [{"axis": "fear", "delta": -1}],
+          "no": [{"axis": "fear", "delta": 1}]
+        },
+        {
+          "id": "q2",
+          "text": "Did anyone discover the passage behind the waterfall?",
+          "yes": [],
+          "no": []
+        }
+      ]
+    },
+    {
+      "id": "great_hall",
+      "name": "The Great Hall",
+      "premise": "The warband feasts. Their war-drums drive the raids. A frontal battle, or something cleverer.",
+      "questions": [
+        {
+          "id": "q1",
+          "text": "Were the war-drums destroyed?",
+          "yes": [{"axis": "fear", "delta": -2}],
+          "no": [{"axis": "fear", "delta": 1}]
+        },
+        {
+          "id": "q2",
+          "text": "Did the warband's shaman escape?",
+          "yes": [{"axis": "fear", "delta": 1}],
+          "no": [{"axis": "hope", "delta": 1}]
+        }
+      ]
+    },
+    {
+      "id": "grotto",
+      "name": "The Flooded Grotto",
+      "premise": "A drowned shrine beneath the falls. Something older than goblins is chained here, and it wants to bargain.",
+      "questions": [
+        {
+          "id": "q1",
+          "text": "Did the party strike the bargain?",
+          "yes": [{"axis": "hope", "delta": 2}, {"axis": "fear", "delta": 1}],
+          "no": []
+        }
+      ]
+    },
+    {
+      "id": "warrens",
+      "name": "The Warrens",
+      "premise": "Tunnels, cages, the missing villagers — and the goblin chief's rearguard.",
+      "questions": [
+        {
+          "id": "q1",
+          "text": "Were the villagers freed alive?",
+          "yes": [{"axis": "hope", "delta": 2}],
+          "no": [{"axis": "hope", "delta": -2}, {"axis": "fear", "delta": 1}]
+        },
+        {
+          "id": "q2",
+          "text": "Did the chief's rearguard rout?",
+          "yes": [{"axis": "fear", "delta": -1}],
+          "no": []
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "broken_stair",
+      "from": "gatehouse",
+      "to": "great_hall",
+      "name": "The Broken Stair",
+      "flavor": "The direct ascent, drums growing louder.",
+      "requires": [{"question": "q1", "answer": "yes"}],
+      "impacts": []
+    },
+    {
+      "id": "long_crawl",
+      "from": "gatehouse",
+      "to": "great_hall",
+      "name": "The Long Crawl",
+      "flavor": "A night circling the cliffs, watched from above.",
+      "requires": [],
+      "impacts": [{"axis": "fear", "delta": 1}]
+    },
+    {
+      "id": "behind_the_falls",
+      "from": "gatehouse",
+      "to": "grotto",
+      "name": "Behind the Falls",
+      "flavor": "A black slit in wet stone.",
+      "requires": [{"question": "q2", "answer": "yes"}],
+      "impacts": [{"axis": "hope", "delta": 1}]
+    },
+    {
+      "id": "drowned_way",
+      "from": "grotto",
+      "to": "warrens",
+      "name": "The Drowned Way",
+      "flavor": "The grotto's far channel, silent and cold.",
+      "requires": [],
+      "impacts": [{"axis": "fear", "delta": -1}]
+    },
+    {
+      "id": "chiefs_road",
+      "from": "great_hall",
+      "to": "warrens",
+      "name": "The Chief's Road",
+      "flavor": "Banners torn down as you pass.",
+      "requires": [{"question": "q1", "answer": "yes"}],
+      "impacts": [{"axis": "hope", "delta": 1}]
+    },
+    {
+      "id": "midden_gate",
+      "from": "great_hall",
+      "to": "warrens",
+      "name": "The Midden Gate",
+      "flavor": "Through the filth, heads down.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "throne_door",
+      "from": "warrens",
+      "to": "throne",
+      "name": "The Throne Door",
+      "flavor": "Iron-bound, ready to fall.",
+      "requires": [{"question": "q2", "answer": "yes"}],
+      "impacts": []
+    },
+    {
+      "id": "smoke_choked_run",
+      "from": "warrens",
+      "to": "retreat",
+      "name": "The Smoke-Choked Run",
+      "flavor": "Out, alive, empty-handed.",
+      "requires": [],
+      "impacts": [{"axis": "hope", "delta": -1}]
+    }
+  ],
+  "terminals": [
+    {
+      "id": "throne",
+      "name": "The Chieftain's Throne",
+      "premise": "The chief falls; the raids end.",
+      "endings": [
+        {
+          "when": [{"axis": "hope", "op": ">=", "value": 5}],
+          "party_result": "win",
+          "text": "The villages rebuild. Songs are sung."
+        },
+        {
+          "when": [],
+          "party_result": "loss",
+          "text": "A hollow victory: the villages are too broken to rebuild."
+        }
+      ]
+    },
+    {
+      "id": "retreat",
+      "name": "Bitter Retreat",
+      "premise": "The warrens stand.",
+      "endings": [
+        {
+          "when": [],
+          "party_result": "loss",
+          "text": "The raids resume with the next new moon."
+        }
+      ]
+    }
+  ],
+  "goal_cards": [
+    {
+      "id": "dread_cultist",
+      "name": "Dread Cultist",
+      "vp": 3,
+      "conditions": [{"type": "final_value", "axis": "fear", "op": ">=", "value": 7}]
+    },
+    {
+      "id": "optimist",
+      "name": "The Optimist",
+      "vp": 3,
+      "conditions": [{"type": "final_value", "axis": "hope", "op": ">=", "value": 7}]
+    },
+    {
+      "id": "warmonger",
+      "name": "Warmonger",
+      "vp": 2,
+      "conditions": [
+        {
+          "type": "count",
+          "op": ">=",
+          "value": 3,
+          "of": [
+            {"type": "question", "node": "gatehouse", "question": "q1", "answer": "no"},
+            {"type": "question", "node": "great_hall", "question": "q1", "answer": "yes"},
+            {"type": "question", "node": "great_hall", "question": "q1", "answer": "no"},
+            {"type": "question", "node": "great_hall", "question": "q2", "answer": "yes"},
+            {"type": "question", "node": "grotto", "question": "q1", "answer": "yes"},
+            {"type": "question", "node": "warrens", "question": "q1", "answer": "no"},
+            {"type": "edge", "edge": "long_crawl"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deep_bargainer",
+      "name": "Deep Bargainer",
+      "vp": 3,
+      "conditions": [{"type": "question", "node": "grotto", "question": "q1", "answer": "yes"}]
+    },
+    {
+      "id": "steady_hand",
+      "name": "Steady Hand",
+      "vp": 2,
+      "conditions": [{"type": "never", "axis": "hope", "op": "<", "value": 3}]
+    }
+  ]
+}
