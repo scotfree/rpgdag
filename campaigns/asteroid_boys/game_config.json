@@ -1,0 +1,2118 @@
+{
+  "meta": {
+    "name": "Asteroid Boys",
+    "description": "Finish the base ship and fly it out of the belt.",
+    "start_node": "departure",
+    "players": [
+      "alice",
+      "bob",
+      "carol"
+    ]
+  },
+  "axes": [
+    {
+      "id": "credits",
+      "name": "Credits",
+      "start": 3
+    },
+    {
+      "id": "base_ship",
+      "name": "Base Ship",
+      "start": 0
+    },
+    {
+      "id": "force_balance",
+      "name": "Force Balance",
+      "start": 5
+    }
+  ],
+  "nodes": [
+    {
+      "id": "departure",
+      "name": "Departure",
+      "premise": "The crew's base ship sits half-finished at the dock. Out there, the belt.",
+      "questions": [
+        {
+          "id": "q1",
+          "text": "Did the crew settle their dock debts before leaving?",
+          "yes": [
+            {
+              "axis": "credits",
+              "delta": -1
+            }
+          ],
+          "no": [
+            {
+              "axis": "force_balance",
+              "delta": -1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a11",
+      "name": "Claim Seven",
+      "premise": "A squatted mining claim; the squatters say they filed first.",
+      "questions": [
+        {
+          "id": "m",
+          "text": "Did the crew mine or salvage here?",
+          "yes": [
+            {
+              "axis": "credits",
+              "delta": 2
+            }
+          ],
+          "no": []
+        },
+        {
+          "id": "f",
+          "text": "Was there a fight?",
+          "yes": [
+            {
+              "axis": "force_balance",
+              "delta": -1
+            }
+          ],
+          "no": []
+        },
+        {
+          "id": "s",
+          "text": "Did anyone do science here?",
+          "yes": [],
+          "no": []
+        }
+      ]
+    },
+    {
+      "id": "a12",
+      "name": "The Tollhouse",
+      "premise": "Ex-militia run a toll gate across the only clear lane.",
+      "questions": [
+        {
+          "id": "m",
+          "text": "Did the crew mine or salvage here?",
+          "yes": [],
+          "no": []
+        },
+        {
+          "id": "f",
+          "text": "Was there a fight?",
+          "yes": [
+            {
+              "axis": "base_ship",
+              "delta": 1
+            }
+          ],
+          "no": []
+        },
+        {
+          "id": "s",
+          "text": "Did anyone do science here?",
+          "yes": [
+            {
+              "axis": "force_balance",
+              "delta": 1
+            }
+          ],
+          "no": []
+        }
+      ]
+    },
+    {
+      "id": "a13",
+      "name": "Hollow Saint",
+      "premise": "A shrine carved into a hollow rock, tended by the Quiet Ones.",
+      "questions": [
+        {
+          "id": "m",
+          "text": "Did the crew mine or salvage here?",
+          "yes": [
+            {
+              "axis": "base_ship",
+              "delta": -1
+            }
+          ],
+          "no": []
+        },
+        {
+          "id": "f",
+          "text": "Was there a fight?",
+          "yes": [],
+          "no": []
+        },
+        {
+          "id": "s",
+          "text": "Did anyone do science here?",
+          "yes": [
+            {
+              "axis": "force_balance",
+              "delta": 2
+            }
+          ],
+          "no": []
+        }
+      ]
+    },
+    {
+      "id": "a14",
+      "name": "Glimmer Drift",
+      "premise": "A slow ice field shot through with singing crystal.",
+      "questions": [
+        {
+          "id": "m",
+          "text": "Did the crew mine or salvage here?",
+          "yes": [
+            {
+              "axis": "base_ship",
+              "delta": 2
+            }
+          ],
+          "no": []
+        },
+        {
+          "id": "f",
+          "text": "Was there a fight?",
+          "yes": [],
+          "no": []
+        },
+        {
+          "id": "s",
+          "text": "Did anyone do science here?",
+          "yes": [
+            {
+              "axis": "credits",
+              "delta": 1
+            }
+          ],
+          "no": []
+        }
+      ]
+    },
+    {
+      "id": "a15",
+      "name": "Wreck of the Patience",
+      "premise": "A gutted ore hauler, still venting. Someone got here first.",
+      "questions": [
+        {
+          "id": "m",
+          "text": "Did the crew mine or salvage here?",
+          "yes": [
+            {
+              "axis": "base_ship",
+              "delta": 1
+            }
+          ],
+          "no": []
+        },
+        {
+          "id": "f",
+          "text": "Was there a fight?",
+          "yes": [
+            {
+              "axis": "force_balance",
+              "delta": -2
+            }
+          ],
+          "no": []
+        },
+        {
+          "id": "s",
+          "text": "Did anyone do science here?",
+          "yes": [],
+          "no": []
+        }
+      ]
+    },
+    {
+      "id": "a21",
+      "name": "Ma Kessler's Still",
+      "premise": "A moonshine depot and the belt's only honest bar.",
+      "questions": [
+        {
+          "id": "m",
+          "text": "Did the crew mine or salvage here?",
+          "yes": [
+            {
+              "axis": "base_ship",
+              "delta": -1
+            }
+          ],
+          "no": []
+        },
+        {
+          "id": "f",
+          "text": "Was there a fight?",
+          "yes": [],
+          "no": []
+        },
+        {
+          "id": "s",
+          "text": "Did anyone do science here?",
+          "yes": [
+            {
+              "axis": "force_balance",
+              "delta": 1
+            }
+          ],
+          "no": []
+        }
+      ]
+    },
+    {
+      "id": "a22",
+      "name": "The Drum",
+      "premise": "A spinning rock where the Drummers keep time for the end of the world.",
+      "questions": [
+        {
+          "id": "m",
+          "text": "Did the crew mine or salvage here?",
+          "yes": [],
+          "no": []
+        },
+        {
+          "id": "f",
+          "text": "Was there a fight?",
+          "yes": [
+            {
+              "axis": "force_balance",
+              "delta": -3
+            }
+          ],
+          "no": []
+        },
+        {
+          "id": "s",
+          "text": "Did anyone do science here?",
+          "yes": [
+            {
+              "axis": "credits",
+              "delta": -1
+            }
+          ],
+          "no": []
+        }
+      ]
+    },
+    {
+      "id": "a23",
+      "name": "Scrapyard Nine",
+      "premise": "A salvage co-op that pays in parts, not credits.",
+      "questions": [
+        {
+          "id": "m",
+          "text": "Did the crew mine or salvage here?",
+          "yes": [
+            {
+              "axis": "base_ship",
+              "delta": 2
+            }
+          ],
+          "no": []
+        },
+        {
+          "id": "f",
+          "text": "Was there a fight?",
+          "yes": [
+            {
+              "axis": "credits",
+              "delta": -1
+            }
+          ],
+          "no": []
+        },
+        {
+          "id": "s",
+          "text": "Did anyone do science here?",
+          "yes": [],
+          "no": []
+        }
+      ]
+    },
+    {
+      "id": "a24",
+      "name": "Pilgrim's Rest",
+      "premise": "Cultists waiting for a ship that will carry them out.",
+      "questions": [
+        {
+          "id": "m",
+          "text": "Did the crew mine or salvage here?",
+          "yes": [
+            {
+              "axis": "credits",
+              "delta": 1
+            }
+          ],
+          "no": []
+        },
+        {
+          "id": "f",
+          "text": "Was there a fight?",
+          "yes": [],
+          "no": []
+        },
+        {
+          "id": "s",
+          "text": "Did anyone do science here?",
+          "yes": [
+            {
+              "axis": "force_balance",
+              "delta": 3
+            }
+          ],
+          "no": []
+        }
+      ]
+    },
+    {
+      "id": "a25",
+      "name": "Cold Vein",
+      "premise": "A rich nickel seam under a rival crew's flag.",
+      "questions": [
+        {
+          "id": "m",
+          "text": "Did the crew mine or salvage here?",
+          "yes": [
+            {
+              "axis": "credits",
+              "delta": 2
+            }
+          ],
+          "no": []
+        },
+        {
+          "id": "f",
+          "text": "Was there a fight?",
+          "yes": [
+            {
+              "axis": "base_ship",
+              "delta": -1
+            }
+          ],
+          "no": []
+        },
+        {
+          "id": "s",
+          "text": "Did anyone do science here?",
+          "yes": [],
+          "no": []
+        }
+      ]
+    },
+    {
+      "id": "a31",
+      "name": "The Choir",
+      "premise": "A colony that broadcasts hymns into the dark and won't stop.",
+      "questions": [
+        {
+          "id": "m",
+          "text": "Did the crew mine or salvage here?",
+          "yes": [],
+          "no": []
+        },
+        {
+          "id": "f",
+          "text": "Was there a fight?",
+          "yes": [
+            {
+              "axis": "base_ship",
+              "delta": -2
+            }
+          ],
+          "no": []
+        },
+        {
+          "id": "s",
+          "text": "Did anyone do science here?",
+          "yes": [
+            {
+              "axis": "force_balance",
+              "delta": 1
+            }
+          ],
+          "no": []
+        }
+      ]
+    },
+    {
+      "id": "a32",
+      "name": "Hangman's Spur",
+      "premise": "Belt justice: the rope lane where claim-jumpers end up.",
+      "questions": [
+        {
+          "id": "m",
+          "text": "Did the crew mine or salvage here?",
+          "yes": [
+            {
+              "axis": "credits",
+              "delta": 2
+            }
+          ],
+          "no": []
+        },
+        {
+          "id": "f",
+          "text": "Was there a fight?",
+          "yes": [
+            {
+              "axis": "force_balance",
+              "delta": -1
+            }
+          ],
+          "no": []
+        },
+        {
+          "id": "s",
+          "text": "Did anyone do science here?",
+          "yes": [],
+          "no": []
+        }
+      ]
+    },
+    {
+      "id": "a33",
+      "name": "The Foundry",
+      "premise": "An abandoned smelter that still works, if anyone can wake it.",
+      "questions": [
+        {
+          "id": "m",
+          "text": "Did the crew mine or salvage here?",
+          "yes": [
+            {
+              "axis": "credits",
+              "delta": -2
+            }
+          ],
+          "no": []
+        },
+        {
+          "id": "f",
+          "text": "Was there a fight?",
+          "yes": [],
+          "no": []
+        },
+        {
+          "id": "s",
+          "text": "Did anyone do science here?",
+          "yes": [
+            {
+              "axis": "base_ship",
+              "delta": 2
+            }
+          ],
+          "no": []
+        }
+      ]
+    },
+    {
+      "id": "a34",
+      "name": "Mother's Eye",
+      "premise": "A cult observatory that claims to see the Force itself.",
+      "questions": [
+        {
+          "id": "m",
+          "text": "Did the crew mine or salvage here?",
+          "yes": [],
+          "no": []
+        },
+        {
+          "id": "f",
+          "text": "Was there a fight?",
+          "yes": [
+            {
+              "axis": "credits",
+              "delta": -1
+            }
+          ],
+          "no": []
+        },
+        {
+          "id": "s",
+          "text": "Did anyone do science here?",
+          "yes": [
+            {
+              "axis": "force_balance",
+              "delta": 2
+            }
+          ],
+          "no": []
+        }
+      ]
+    },
+    {
+      "id": "a35",
+      "name": "Black Market Hub",
+      "premise": "Everything is for sale, including you.",
+      "questions": [
+        {
+          "id": "m",
+          "text": "Did the crew mine or salvage here?",
+          "yes": [
+            {
+              "axis": "credits",
+              "delta": -2
+            }
+          ],
+          "no": []
+        },
+        {
+          "id": "f",
+          "text": "Was there a fight?",
+          "yes": [
+            {
+              "axis": "base_ship",
+              "delta": 1
+            }
+          ],
+          "no": []
+        },
+        {
+          "id": "s",
+          "text": "Did anyone do science here?",
+          "yes": [],
+          "no": []
+        }
+      ]
+    },
+    {
+      "id": "a41",
+      "name": "Dead Man's Lode",
+      "premise": "Platinum, and a claim whose last owner died mid-shift.",
+      "questions": [
+        {
+          "id": "m",
+          "text": "Did the crew mine or salvage here?",
+          "yes": [
+            {
+              "axis": "credits",
+              "delta": 2
+            }
+          ],
+          "no": []
+        },
+        {
+          "id": "f",
+          "text": "Was there a fight?",
+          "yes": [],
+          "no": []
+        },
+        {
+          "id": "s",
+          "text": "Did anyone do science here?",
+          "yes": [
+            {
+              "axis": "force_balance",
+              "delta": -2
+            }
+          ],
+          "no": []
+        }
+      ]
+    },
+    {
+      "id": "a42",
+      "name": "The Reliquary",
+      "premise": "Cultists guard a drive core they believe is holy.",
+      "questions": [
+        {
+          "id": "m",
+          "text": "Did the crew mine or salvage here?",
+          "yes": [],
+          "no": []
+        },
+        {
+          "id": "f",
+          "text": "Was there a fight?",
+          "yes": [
+            {
+              "axis": "base_ship",
+              "delta": 2
+            }
+          ],
+          "no": []
+        },
+        {
+          "id": "s",
+          "text": "Did anyone do science here?",
+          "yes": [
+            {
+              "axis": "force_balance",
+              "delta": -1
+            }
+          ],
+          "no": []
+        }
+      ]
+    },
+    {
+      "id": "a43",
+      "name": "Sawtooth",
+      "premise": "A broken rock crawling with pirate skiffs.",
+      "questions": [
+        {
+          "id": "m",
+          "text": "Did the crew mine or salvage here?",
+          "yes": [
+            {
+              "axis": "base_ship",
+              "delta": -1
+            }
+          ],
+          "no": []
+        },
+        {
+          "id": "f",
+          "text": "Was there a fight?",
+          "yes": [
+            {
+              "axis": "credits",
+              "delta": 1
+            }
+          ],
+          "no": []
+        },
+        {
+          "id": "s",
+          "text": "Did anyone do science here?",
+          "yes": [],
+          "no": []
+        }
+      ]
+    },
+    {
+      "id": "a44",
+      "name": "The Quiet Field",
+      "premise": "A dead-calm pocket where instruments read things that aren't there.",
+      "questions": [
+        {
+          "id": "m",
+          "text": "Did the crew mine or salvage here?",
+          "yes": [
+            {
+              "axis": "credits",
+              "delta": -1
+            }
+          ],
+          "no": []
+        },
+        {
+          "id": "f",
+          "text": "Was there a fight?",
+          "yes": [],
+          "no": []
+        },
+        {
+          "id": "s",
+          "text": "Did anyone do science here?",
+          "yes": [
+            {
+              "axis": "force_balance",
+              "delta": 3
+            }
+          ],
+          "no": []
+        }
+      ]
+    },
+    {
+      "id": "a45",
+      "name": "Last Chance Depot",
+      "premise": "The final fuel stop before the inner edge. Prices to match.",
+      "questions": [
+        {
+          "id": "m",
+          "text": "Did the crew mine or salvage here?",
+          "yes": [
+            {
+              "axis": "base_ship",
+              "delta": 1
+            }
+          ],
+          "no": []
+        },
+        {
+          "id": "f",
+          "text": "Was there a fight?",
+          "yes": [
+            {
+              "axis": "credits",
+              "delta": -2
+            }
+          ],
+          "no": []
+        },
+        {
+          "id": "s",
+          "text": "Did anyone do science here?",
+          "yes": [],
+          "no": []
+        }
+      ]
+    },
+    {
+      "id": "a51",
+      "name": "Ghost Shipyard",
+      "premise": "Half-built hulls from a company that went bust mid-contract.",
+      "questions": [
+        {
+          "id": "m",
+          "text": "Did the crew mine or salvage here?",
+          "yes": [
+            {
+              "axis": "base_ship",
+              "delta": 2
+            }
+          ],
+          "no": []
+        },
+        {
+          "id": "f",
+          "text": "Was there a fight?",
+          "yes": [
+            {
+              "axis": "force_balance",
+              "delta": -1
+            }
+          ],
+          "no": []
+        },
+        {
+          "id": "s",
+          "text": "Did anyone do science here?",
+          "yes": [],
+          "no": []
+        }
+      ]
+    },
+    {
+      "id": "a52",
+      "name": "The Prophet's Rock",
+      "premise": "The cult's founder lives here and wants a ride out.",
+      "questions": [
+        {
+          "id": "m",
+          "text": "Did the crew mine or salvage here?",
+          "yes": [],
+          "no": []
+        },
+        {
+          "id": "f",
+          "text": "Was there a fight?",
+          "yes": [
+            {
+              "axis": "credits",
+              "delta": 1
+            }
+          ],
+          "no": []
+        },
+        {
+          "id": "s",
+          "text": "Did anyone do science here?",
+          "yes": [
+            {
+              "axis": "force_balance",
+              "delta": -3
+            }
+          ],
+          "no": []
+        }
+      ]
+    },
+    {
+      "id": "a53",
+      "name": "Breaker's Yard",
+      "premise": "Ship-breakers who will strip anything that docks.",
+      "questions": [
+        {
+          "id": "m",
+          "text": "Did the crew mine or salvage here?",
+          "yes": [
+            {
+              "axis": "credits",
+              "delta": 1
+            }
+          ],
+          "no": []
+        },
+        {
+          "id": "f",
+          "text": "Was there a fight?",
+          "yes": [
+            {
+              "axis": "base_ship",
+              "delta": -2
+            }
+          ],
+          "no": []
+        },
+        {
+          "id": "s",
+          "text": "Did anyone do science here?",
+          "yes": [],
+          "no": []
+        }
+      ]
+    },
+    {
+      "id": "a54",
+      "name": "The Lantern",
+      "premise": "A lighthouse beacon kept by a lone, strange keeper.",
+      "questions": [
+        {
+          "id": "m",
+          "text": "Did the crew mine or salvage here?",
+          "yes": [
+            {
+              "axis": "base_ship",
+              "delta": 1
+            }
+          ],
+          "no": []
+        },
+        {
+          "id": "f",
+          "text": "Was there a fight?",
+          "yes": [],
+          "no": []
+        },
+        {
+          "id": "s",
+          "text": "Did anyone do science here?",
+          "yes": [
+            {
+              "axis": "force_balance",
+              "delta": 1
+            }
+          ],
+          "no": []
+        }
+      ]
+    },
+    {
+      "id": "a55",
+      "name": "Gate Rock",
+      "premise": "Customs post on the edge of the belt. Bribes accepted.",
+      "questions": [
+        {
+          "id": "m",
+          "text": "Did the crew mine or salvage here?",
+          "yes": [],
+          "no": []
+        },
+        {
+          "id": "f",
+          "text": "Was there a fight?",
+          "yes": [
+            {
+              "axis": "credits",
+              "delta": -1
+            }
+          ],
+          "no": []
+        },
+        {
+          "id": "s",
+          "text": "Did anyone do science here?",
+          "yes": [
+            {
+              "axis": "base_ship",
+              "delta": 1
+            }
+          ],
+          "no": []
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "departure__a11",
+      "from": "departure",
+      "to": "a11",
+      "name": "Burn for Claim Seven",
+      "flavor": "Old claim beacons blink you in.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "departure__a12",
+      "from": "departure",
+      "to": "a12",
+      "name": "Burn for The Tollhouse",
+      "flavor": "Floodlights sweep across the lane.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "departure__a13",
+      "from": "departure",
+      "to": "a13",
+      "name": "Burn for Hollow Saint",
+      "flavor": "Chanting on an open channel.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "departure__a14",
+      "from": "departure",
+      "to": "a14",
+      "name": "Burn for Glimmer Drift",
+      "flavor": "The hull rings like a struck bell.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "departure__a15",
+      "from": "departure",
+      "to": "a15",
+      "name": "Burn for Wreck of the Patience",
+      "flavor": "Debris tumbles past the viewport.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a11__a21",
+      "from": "a11",
+      "to": "a21",
+      "name": "Burn for Ma Kessler's Still",
+      "flavor": "Running lights strung like a carnival.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a11__a22",
+      "from": "a11",
+      "to": "a22",
+      "name": "Burn for The Drum",
+      "flavor": "A heavy pulse through the deck plates.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a12__a21",
+      "from": "a12",
+      "to": "a21",
+      "name": "Burn for Ma Kessler's Still",
+      "flavor": "Running lights strung like a carnival.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a12__a22",
+      "from": "a12",
+      "to": "a22",
+      "name": "Burn for The Drum",
+      "flavor": "A heavy pulse through the deck plates.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a12__a23",
+      "from": "a12",
+      "to": "a23",
+      "name": "Burn for Scrapyard Nine",
+      "flavor": "A tangle of tethered hulks.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a13__a22",
+      "from": "a13",
+      "to": "a22",
+      "name": "Burn for The Drum",
+      "flavor": "A heavy pulse through the deck plates.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a13__a23",
+      "from": "a13",
+      "to": "a23",
+      "name": "Burn for Scrapyard Nine",
+      "flavor": "A tangle of tethered hulks.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a13__a24",
+      "from": "a13",
+      "to": "a24",
+      "name": "Burn for Pilgrim's Rest",
+      "flavor": "Hand-painted signs: WE ARE READY.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a14__a23",
+      "from": "a14",
+      "to": "a23",
+      "name": "Burn for Scrapyard Nine",
+      "flavor": "A tangle of tethered hulks.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a14__a24",
+      "from": "a14",
+      "to": "a24",
+      "name": "Burn for Pilgrim's Rest",
+      "flavor": "Hand-painted signs: WE ARE READY.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a14__a25",
+      "from": "a14",
+      "to": "a25",
+      "name": "Burn for Cold Vein",
+      "flavor": "Drill dust hangs in the dark.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a15__a24",
+      "from": "a15",
+      "to": "a24",
+      "name": "Burn for Pilgrim's Rest",
+      "flavor": "Hand-painted signs: WE ARE READY.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a15__a25",
+      "from": "a15",
+      "to": "a25",
+      "name": "Burn for Cold Vein",
+      "flavor": "Drill dust hangs in the dark.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a21__a31",
+      "from": "a21",
+      "to": "a31",
+      "name": "Burn for The Choir",
+      "flavor": "The hymn fills every channel.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a21__a32",
+      "from": "a21",
+      "to": "a32",
+      "name": "Burn for Hangman's Spur",
+      "flavor": "Shapes drift on long tethers.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a22__a31",
+      "from": "a22",
+      "to": "a31",
+      "name": "Burn for The Choir",
+      "flavor": "The hymn fills every channel.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a22__a32",
+      "from": "a22",
+      "to": "a32",
+      "name": "Burn for Hangman's Spur",
+      "flavor": "Shapes drift on long tethers.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a22__a33",
+      "from": "a22",
+      "to": "a33",
+      "name": "Burn for The Foundry",
+      "flavor": "Slag glows faint red.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a23__a32",
+      "from": "a23",
+      "to": "a32",
+      "name": "Burn for Hangman's Spur",
+      "flavor": "Shapes drift on long tethers.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a23__a33",
+      "from": "a23",
+      "to": "a33",
+      "name": "Burn for The Foundry",
+      "flavor": "Slag glows faint red.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a23__a34",
+      "from": "a23",
+      "to": "a34",
+      "name": "Burn for Mother's Eye",
+      "flavor": "A lens the size of a town turns to watch you.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a24__a33",
+      "from": "a24",
+      "to": "a33",
+      "name": "Burn for The Foundry",
+      "flavor": "Slag glows faint red.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a24__a34",
+      "from": "a24",
+      "to": "a34",
+      "name": "Burn for Mother's Eye",
+      "flavor": "A lens the size of a town turns to watch you.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a24__a35",
+      "from": "a24",
+      "to": "a35",
+      "name": "Burn for Black Market Hub",
+      "flavor": "A hundred transponders, all fake.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a25__a34",
+      "from": "a25",
+      "to": "a34",
+      "name": "Burn for Mother's Eye",
+      "flavor": "A lens the size of a town turns to watch you.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a25__a35",
+      "from": "a25",
+      "to": "a35",
+      "name": "Burn for Black Market Hub",
+      "flavor": "A hundred transponders, all fake.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a31__a41",
+      "from": "a31",
+      "to": "a41",
+      "name": "Burn for Dead Man's Lode",
+      "flavor": "Rescue flares, decades old.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a31__a42",
+      "from": "a31",
+      "to": "a42",
+      "name": "Burn for The Reliquary",
+      "flavor": "Candles flicker in vacuum, impossibly.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a32__a41",
+      "from": "a32",
+      "to": "a41",
+      "name": "Burn for Dead Man's Lode",
+      "flavor": "Rescue flares, decades old.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a32__a42",
+      "from": "a32",
+      "to": "a42",
+      "name": "Burn for The Reliquary",
+      "flavor": "Candles flicker in vacuum, impossibly.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a32__a43",
+      "from": "a32",
+      "to": "a43",
+      "name": "Burn for Sawtooth",
+      "flavor": "Jagged silhouettes, engines cold.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a33__a42",
+      "from": "a33",
+      "to": "a42",
+      "name": "Burn for The Reliquary",
+      "flavor": "Candles flicker in vacuum, impossibly.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a33__a43",
+      "from": "a33",
+      "to": "a43",
+      "name": "Burn for Sawtooth",
+      "flavor": "Jagged silhouettes, engines cold.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a33__a44",
+      "from": "a33",
+      "to": "a44",
+      "name": "Burn for The Quiet Field",
+      "flavor": "Every instrument goes silent at once.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a34__a43",
+      "from": "a34",
+      "to": "a43",
+      "name": "Burn for Sawtooth",
+      "flavor": "Jagged silhouettes, engines cold.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a34__a44",
+      "from": "a34",
+      "to": "a44",
+      "name": "Burn for The Quiet Field",
+      "flavor": "Every instrument goes silent at once.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a34__a45",
+      "from": "a34",
+      "to": "a45",
+      "name": "Burn for Last Chance Depot",
+      "flavor": "A hand-lettered sign: LAST FUEL.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a35__a44",
+      "from": "a35",
+      "to": "a44",
+      "name": "Burn for The Quiet Field",
+      "flavor": "Every instrument goes silent at once.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a35__a45",
+      "from": "a35",
+      "to": "a45",
+      "name": "Burn for Last Chance Depot",
+      "flavor": "A hand-lettered sign: LAST FUEL.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a41__a51",
+      "from": "a41",
+      "to": "a51",
+      "name": "Burn for Ghost Shipyard",
+      "flavor": "Unfinished ribs against the stars.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a41__a52",
+      "from": "a41",
+      "to": "a52",
+      "name": "Burn for The Prophet's Rock",
+      "flavor": "A lone figure stands on the surface, waving.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a42__a51",
+      "from": "a42",
+      "to": "a51",
+      "name": "Burn for Ghost Shipyard",
+      "flavor": "Unfinished ribs against the stars.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a42__a52",
+      "from": "a42",
+      "to": "a52",
+      "name": "Burn for The Prophet's Rock",
+      "flavor": "A lone figure stands on the surface, waving.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a42__a53",
+      "from": "a42",
+      "to": "a53",
+      "name": "Burn for Breaker's Yard",
+      "flavor": "Cutting torches spark everywhere.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a43__a52",
+      "from": "a43",
+      "to": "a52",
+      "name": "Burn for The Prophet's Rock",
+      "flavor": "A lone figure stands on the surface, waving.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a43__a53",
+      "from": "a43",
+      "to": "a53",
+      "name": "Burn for Breaker's Yard",
+      "flavor": "Cutting torches spark everywhere.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a43__a54",
+      "from": "a43",
+      "to": "a54",
+      "name": "Burn for The Lantern",
+      "flavor": "One steady light in all that dark.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a44__a53",
+      "from": "a44",
+      "to": "a53",
+      "name": "Burn for Breaker's Yard",
+      "flavor": "Cutting torches spark everywhere.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a44__a54",
+      "from": "a44",
+      "to": "a54",
+      "name": "Burn for The Lantern",
+      "flavor": "One steady light in all that dark.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a44__a55",
+      "from": "a44",
+      "to": "a55",
+      "name": "Burn for Gate Rock",
+      "flavor": "Clear lanes beyond, at last.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a45__a54",
+      "from": "a45",
+      "to": "a54",
+      "name": "Burn for The Lantern",
+      "flavor": "One steady light in all that dark.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a45__a55",
+      "from": "a45",
+      "to": "a55",
+      "name": "Burn for Gate Rock",
+      "flavor": "Clear lanes beyond, at last.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a51__fly_out",
+      "from": "a51",
+      "to": "fly_out",
+      "name": "Fly the Base Ship Out",
+      "flavor": "Light the drive and go.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a51__stuck",
+      "from": "a51",
+      "to": "stuck",
+      "name": "Stay in the Belt",
+      "flavor": "One more rock. Always one more rock.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a52__fly_out",
+      "from": "a52",
+      "to": "fly_out",
+      "name": "Fly the Base Ship Out",
+      "flavor": "Light the drive and go.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a52__stuck",
+      "from": "a52",
+      "to": "stuck",
+      "name": "Stay in the Belt",
+      "flavor": "One more rock. Always one more rock.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a53__fly_out",
+      "from": "a53",
+      "to": "fly_out",
+      "name": "Fly the Base Ship Out",
+      "flavor": "Light the drive and go.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a53__stuck",
+      "from": "a53",
+      "to": "stuck",
+      "name": "Stay in the Belt",
+      "flavor": "One more rock. Always one more rock.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a54__fly_out",
+      "from": "a54",
+      "to": "fly_out",
+      "name": "Fly the Base Ship Out",
+      "flavor": "Light the drive and go.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a54__stuck",
+      "from": "a54",
+      "to": "stuck",
+      "name": "Stay in the Belt",
+      "flavor": "One more rock. Always one more rock.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a55__fly_out",
+      "from": "a55",
+      "to": "fly_out",
+      "name": "Fly the Base Ship Out",
+      "flavor": "Light the drive and go.",
+      "requires": [],
+      "impacts": []
+    },
+    {
+      "id": "a55__stuck",
+      "from": "a55",
+      "to": "stuck",
+      "name": "Stay in the Belt",
+      "flavor": "One more rock. Always one more rock.",
+      "requires": [],
+      "impacts": []
+    }
+  ],
+  "terminals": [
+    {
+      "id": "fly_out",
+      "name": "Fly Base Ship Out",
+      "premise": "The crew lights the drive and points the base ship at open space.",
+      "endings": [
+        {
+          "when": [
+            {
+              "axis": "base_ship",
+              "op": ">=",
+              "value": 4
+            }
+          ],
+          "party_result": "win",
+          "text": "She holds together. The belt shrinks behind you."
+        },
+        {
+          "when": [],
+          "party_result": "loss",
+          "text": "She breaks up past the last rock. The belt keeps what it catches."
+        }
+      ]
+    },
+    {
+      "id": "stuck",
+      "name": "Stuck in the Belt",
+      "premise": "The crew never makes it out.",
+      "endings": [
+        {
+          "when": [],
+          "party_result": "loss",
+          "text": "Another crew of rock-rats, another shrine in the dark."
+        }
+      ]
+    }
+  ],
+  "goal_cards": [
+    {
+      "id": "jedi_master",
+      "name": "Jedi Master",
+      "vp": 3,
+      "conditions": [
+        {
+          "type": "final_value",
+          "axis": "force_balance",
+          "op": ">=",
+          "value": 8
+        }
+      ]
+    },
+    {
+      "id": "force_anomaly",
+      "name": "Force Anomaly",
+      "vp": 3,
+      "conditions": [
+        {
+          "type": "final_value",
+          "axis": "force_balance",
+          "op": "==",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "id": "wealthy",
+      "name": "Wealthy",
+      "vp": 2,
+      "conditions": [
+        {
+          "type": "final_value",
+          "axis": "credits",
+          "op": ">",
+          "value": 6
+        }
+      ]
+    },
+    {
+      "id": "big_spender",
+      "name": "Big Spender",
+      "vp": 2,
+      "conditions": [
+        {
+          "type": "total_change",
+          "axis": "credits",
+          "direction": "down",
+          "op": ">=",
+          "value": 6
+        }
+      ]
+    },
+    {
+      "id": "miner",
+      "name": "Miner",
+      "vp": 2,
+      "conditions": [
+        {
+          "type": "count",
+          "op": ">=",
+          "value": 2,
+          "of": [
+            {
+              "type": "question",
+              "node": "a11",
+              "question": "m",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a12",
+              "question": "m",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a13",
+              "question": "m",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a14",
+              "question": "m",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a15",
+              "question": "m",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a21",
+              "question": "m",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a22",
+              "question": "m",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a23",
+              "question": "m",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a24",
+              "question": "m",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a25",
+              "question": "m",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a31",
+              "question": "m",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a32",
+              "question": "m",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a33",
+              "question": "m",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a34",
+              "question": "m",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a35",
+              "question": "m",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a41",
+              "question": "m",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a42",
+              "question": "m",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a43",
+              "question": "m",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a44",
+              "question": "m",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a45",
+              "question": "m",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a51",
+              "question": "m",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a52",
+              "question": "m",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a53",
+              "question": "m",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a54",
+              "question": "m",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a55",
+              "question": "m",
+              "answer": "yes"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hot_blooded",
+      "name": "Hot Blooded",
+      "vp": 2,
+      "conditions": [
+        {
+          "type": "count",
+          "op": ">=",
+          "value": 3,
+          "of": [
+            {
+              "type": "question",
+              "node": "a11",
+              "question": "f",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a12",
+              "question": "f",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a13",
+              "question": "f",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a14",
+              "question": "f",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a15",
+              "question": "f",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a21",
+              "question": "f",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a22",
+              "question": "f",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a23",
+              "question": "f",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a24",
+              "question": "f",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a25",
+              "question": "f",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a31",
+              "question": "f",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a32",
+              "question": "f",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a33",
+              "question": "f",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a34",
+              "question": "f",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a35",
+              "question": "f",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a41",
+              "question": "f",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a42",
+              "question": "f",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a43",
+              "question": "f",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a44",
+              "question": "f",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a45",
+              "question": "f",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a51",
+              "question": "f",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a52",
+              "question": "f",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a53",
+              "question": "f",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a54",
+              "question": "f",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a55",
+              "question": "f",
+              "answer": "yes"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "brainy",
+      "name": "Brainy",
+      "vp": 2,
+      "conditions": [
+        {
+          "type": "count",
+          "op": ">=",
+          "value": 2,
+          "of": [
+            {
+              "type": "question",
+              "node": "a11",
+              "question": "s",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a12",
+              "question": "s",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a13",
+              "question": "s",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a14",
+              "question": "s",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a15",
+              "question": "s",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a21",
+              "question": "s",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a22",
+              "question": "s",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a23",
+              "question": "s",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a24",
+              "question": "s",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a25",
+              "question": "s",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a31",
+              "question": "s",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a32",
+              "question": "s",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a33",
+              "question": "s",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a34",
+              "question": "s",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a35",
+              "question": "s",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a41",
+              "question": "s",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a42",
+              "question": "s",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a43",
+              "question": "s",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a44",
+              "question": "s",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a45",
+              "question": "s",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a51",
+              "question": "s",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a52",
+              "question": "s",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a53",
+              "question": "s",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a54",
+              "question": "s",
+              "answer": "yes"
+            },
+            {
+              "type": "question",
+              "node": "a55",
+              "question": "s",
+              "answer": "yes"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
